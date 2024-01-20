@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>Validate OTP</h2>
+        {% if messages %}
+            <div class="alert alert-success">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Enter the OTP here </label>
+                <input type="number" class="form-control" id="exampleInputPassword1" name="otp">
+            </div>
+            <button type="submit" class="btn btn-primary">Validate OTP</button>
+        </form>
+    </div>
+{% endblock %}

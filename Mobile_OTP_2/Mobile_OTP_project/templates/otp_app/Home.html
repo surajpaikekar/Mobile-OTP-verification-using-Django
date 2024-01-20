@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="container">
+        <form method="post" >
+            {% csrf_token %}
+          <div class="col-md-5 mt-5">
+            <label for="exampleInputEmail1" class="form-label">Enter Mobile Number</label>
+            <input type="number" class="form-control" id="exampleInputEmail1" name="phone_number">
+          </div>
+             <button type="submit" class="btn btn-primary mt-3">Send OTP</button>
+
+            {% if messages %}
+             {% for msg in messages %}
+                <h3 style="color:red;">Hahaha --> {{msg}}</h3>
+            {% endfor %}
+            {% endif %}
+<!--          <div class="mb-3">-->
+<!--            <label for="exampleInputPassword1" class="form-label">Enter the OTP here </label>-->
+<!--            <input type="number" class="form-control" id="exampleInputPassword1" name="otp">-->
+<!--          </div>-->
+<!--               <button type="submit" class="btn btn-primary">Validate OTP</button>-->
+
+        </form>
+    </div>
+
+{% endblock %}
